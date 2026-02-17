@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,6 +171,29 @@
         "text": "Any organization where people carry knowledge that isn't written down — which is every organization. A 50-person manufacturer losing its plant manager faces the same knowledge extinction risk as a Fortune 500 bank losing its head of compliance. The sharpest pain appears in financial services, energy and utilities, healthcare, manufacturing, and government — but the problem is universal across SMBs and enterprises alike. If someone on your team left tomorrow and you'd feel it for months, role continuity matters to you."
       }
     }
+  ]
+}
+</script>
+
+<!-- Schema.org: Book -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Soul for the New Machines",
+  "alternateName": "Soul for the New Machines: How Role Continuity Preserves and Extends Enterprise Human Intelligence",
+  "author": { "@type": "Person", "name": "Chris Dollard" },
+  "publisher": { "@type": "Organization", "name": "ABRAXIS Inc." },
+  "datePublished": "2026-02",
+  "description": "Why 42% of what makes your organization work vanishes every time a key person walks out the door — and the architectural fix that changes everything. Defines the category of Role Continuity and introduces Campfire Mode for continuous team intelligence.",
+  "genre": "Business",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "numberOfPages": 84,
+  "url": "https://www.abraxis.io/media/Soul_for_the_New_Machines.pdf",
+  "encoding": [
+    { "@type": "MediaObject", "contentUrl": "https://www.abraxis.io/media/Soul_for_the_New_Machines.pdf", "encodingFormat": "application/pdf" },
+    { "@type": "MediaObject", "contentUrl": "https://www.abraxis.io/media/Soul_for_the_New_Machines.epub", "encodingFormat": "application/epub+zip" }
   ]
 }
 </script>
@@ -424,6 +448,143 @@
     line-height: 1.75; max-width: 720px;
   }
 
+  /* BOOK SECTION */
+  .book-section {
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--dark-surface) 0%, var(--dark) 50%, var(--dark-surface) 100%);
+  }
+  .book-section::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 30% 50%, rgba(209,0,70,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 70% 40%, rgba(255,177,51,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .book-inner {
+    max-width: 1060px; margin: 0 auto;
+    display: grid; grid-template-columns: 340px 1fr;
+    gap: 64px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .book-cover-wrap {
+    position: relative;
+  }
+  .book-cover-wrap iframe {
+    width: 340px; height: 500px;
+    border: none; border-radius: 8px;
+    box-shadow:
+      0 20px 60px rgba(0,0,0,0.5),
+      0 0 80px rgba(209,0,70,0.08);
+  }
+  .book-text {
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .book-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 20px; width: fit-content;
+    background: rgba(255,177,51,0.1); border: 1px solid rgba(255,177,51,0.2);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .book-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.15; color: #fff;
+  }
+  .book-title em { color: var(--crimson); font-style: italic; }
+  .book-subtitle {
+    font-size: 1.05rem; color: var(--gold-light);
+    font-style: italic; line-height: 1.5;
+  }
+  .book-desc {
+    font-size: 0.95rem; color: var(--gray-light);
+    line-height: 1.75; max-width: 520px;
+  }
+  .book-author {
+    font-size: 0.85rem; color: var(--gray-mid);
+    letter-spacing: 0.04em;
+  }
+  .book-buttons {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px;
+  }
+  .book-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 28px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    font-family: inherit; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .book-btn:hover {
+    transform: translateY(-2px);
+  }
+  .book-btn-pdf {
+    background: var(--gradient); color: #fff;
+  }
+  .book-btn-pdf:hover {
+    box-shadow: 0 6px 24px rgba(209,0,70,0.35);
+  }
+  .book-btn svg {
+    width: 18px; height: 18px; flex-shrink: 0;
+  }
+  .book-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-size: 12px; color: var(--gray); text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* EXCERPT CARDS */
+  .excerpts-grid {
+    max-width: 1060px; margin: 64px auto 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px; position: relative; z-index: 1;
+  }
+  .excerpt-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 32px;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+  .excerpt-card:hover {
+    border-color: rgba(209,0,70,0.25);
+  }
+  .excerpt-card::before {
+    content: '"';
+    position: absolute; top: 16px; left: 20px;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 4rem; line-height: 1; color: rgba(209,0,70,0.15);
+    pointer-events: none;
+  }
+  .excerpt-chapter {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .excerpt-card blockquote {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.05rem; line-height: 1.6;
+    color: var(--gray-light); font-style: italic;
+    margin: 0; padding: 0; border: none;
+  }
+
+  @media (max-width: 900px) {
+    .book-section { padding: 64px 24px; }
+    .book-inner {
+      grid-template-columns: 1fr;
+      gap: 40px; text-align: center;
+    }
+    .book-cover-wrap { justify-self: center; }
+    .book-cover-wrap iframe { width: 280px; height: 410px; }
+    .book-badge { margin: 0 auto; }
+    .book-desc { max-width: 100%; }
+    .book-buttons { justify-content: center; }
+    .book-btn { justify-content: center; width: 100%; }
+    .book-meta { justify-content: center; }
+    .excerpts-grid { grid-template-columns: 1fr; }
+  }
+
   /* CTA SECTION */
   .final-cta {
     text-align: center; padding: 100px 48px;
@@ -500,6 +661,7 @@
   <a href="/"><img src="https://images.squarespace-cdn.com/content/v1/69239007eb510014af879b35/94ce2db1-eb30-4768-86df-d0d7d90429d9/logo-web-font-rev.png" style="height: 60px; width: auto;"></a>
   <div class="nav-links">
     <a href="#problem">The Problem</a>
+    <a href="#book">The Book</a>
     <a href="#how">How It Works</a>
     <a href="#faq">FAQ</a>
     <a href="https://thehumanlayer.substack.com" target="_blank">Blog</a>
@@ -509,7 +671,7 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-badge">🔴 Now Accepting Early Access Applications</div>
+  <div class="hero-badge">🔴 New: "Soul for the New Machines" — <a href="#book" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">Free when you Join the Waitlist ↓</a></div>
 
   <h1>Your best people are leaving.<br>Their knowledge <em>doesn't have to.</em></h1>
 
@@ -561,6 +723,58 @@
     <div class="stat-label">of digital transformations fail due to the coherence gap</div>
   </div>
 </div>
+
+<!-- BOOK SECTION -->
+<section id="book" class="book-section">
+  <div class="book-inner">
+    <div class="book-cover-wrap">
+      <iframe src="https://soul-book-cover.vercel.app/" title="Soul for the New Machines — Animated Book Cover" loading="lazy" scrolling="no"></iframe>
+    </div>
+    <div class="book-text">
+      <div class="book-badge">📖 New for 2026 — Free when you Join the Waitlist</div>
+      <h2 class="book-title">Soul for the <em>New Machines</em></h2>
+      <p class="book-subtitle">How Role Continuity Preserves &amp; Extends Enterprise Human Intelligence</p>
+      <p class="book-desc">The playbook for the problem everyone knows exists and nobody talks about. This book names the crisis, defines the category of Role Continuity, and introduces Campfire Mode — the shift from event-triggered knowledge capture to continuous team intelligence.</p>
+      <p class="book-author">By Chris Dollard &nbsp;·&nbsp; Founder, ABRAXIS</p>
+      <div class="book-meta">
+        <span>~60 pages</span>
+        <span>90 min read</span>
+        <span>PDF &amp; EPUB</span>
+      </div>
+      <a href="#waitlist" class="book-btn book-btn-pdf">
+        Join the Waitlist for Your Free Copy →
+      </a>
+    </div>
+  </div>
+
+  <!-- EXCERPTS -->
+  <div class="excerpts-grid">
+    <div class="excerpt-card">
+      <div class="excerpt-chapter">From the Introduction</div>
+      <blockquote>
+        "The department wasn't failing because of its people. It was failing because twenty-three years of accumulated intelligence had walked out the door in a cake-and-a-card ceremony, and nobody had realized how much of that intelligence was invisible."
+      </blockquote>
+    </div>
+    <div class="excerpt-card">
+      <div class="excerpt-chapter">From Chapter 1: The Conspiracy of Silence</div>
+      <blockquote>
+        "Here is something that everyone in every organization knows and nobody says out loud: the documentation is wrong. Not wrong in a dramatic, scandalous way. Wrong in a quiet, pervasive, completely normalized way."
+      </blockquote>
+    </div>
+    <div class="excerpt-card">
+      <div class="excerpt-chapter">From Chapter 4: Campfire Mode</div>
+      <blockquote>
+        "The most valuable and most fragile knowledge in any organization lives between people — in the handoffs, coordination patterns, and shared heuristics that a team has evolved through years of working together. No individual can provide this knowledge alone."
+      </blockquote>
+    </div>
+    <div class="excerpt-card">
+      <div class="excerpt-chapter">From the Foreword</div>
+      <blockquote>
+        "The machines never ask. They just rocket in any direction you give them. It's not their 'fault' that disaster often ensues — it's the GPS coordinates we give them that are faulty."
+      </blockquote>
+    </div>
+  </div>
+</section>
 
 <!-- THE PROBLEM -->
 <section id="problem">
@@ -681,12 +895,17 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
     Try the free Role Continuity Assessment →
   </a>
+
+  <a href="#book" class="gpt-link" aria-label="Get Soul for the New Machines ebook" style="margin-top:8px;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    Get "Soul for the New Machines" — Free when you Join the Waitlist →
+  </a>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-tagline">The Whole Enterprise Truth.</div>
-  <p>&copy; 2026 ABRAXIS Inc. &nbsp;·&nbsp; <a href="mailto:chris@abraxis.ai">chris@abraxis.ai</a> &nbsp;·&nbsp; San Francisco, CA</p>
+  <p>&copy; 2026 ABRAXIS Inc. &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#f09398829983b091928291889983de9199"><span class="__cf_email__" data-cfemail="13707b617a6053727161726b7a603d727a">[email&#160;protected]</span></a> &nbsp;·&nbsp; San Francisco, CA</p>
 </footer>
 
 <!--
@@ -710,9 +929,4 @@
   - Tag signups with "waitlist" and "abraxis.io" for segmentation
   - Consider adding a hidden field for source (landing-page-hero vs landing-page-bottom)
 
-  ALTERNATIVE: If you prefer ConvertKit or Buttondown, same pattern —
-  just swap the action URL and field names to match their form spec.
--->
-
-</body>
-</html>
+  ALTERNATIVE: If you prefer Con
