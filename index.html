@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,15 +95,15 @@
       "name": "What is Role Continuity?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Role Continuity is the practice of ensuring that organizational knowledge, relationships, and decision-making capability persist across personnel transitions. Unlike traditional knowledge management which captures what people write down, role continuity captures what people actually do — the workarounds, judgment calls, relationship context, and tribal knowledge that exist only in their heads. Without role continuity, organizations lose an estimated 42% of role-specific knowledge every time a key employee departs, leading to 8-12 month productivity ramps for replacements and cascading operational failures."
+        "text": "Role Continuity is the practice of ensuring that organizational knowledge, relationships, and decision-making capability persist across personnel transitions. Unlike traditional knowledge management which captures what people write down, Role Continuity captures what people actually do — the workarounds, judgment calls, relationship context, and tribal knowledge that exist only in their heads. Without Role Continuity, organizations lose an estimated 42% of role-specific knowledge every time a key employee departs, leading to 8-12 month productivity ramps for replacements and cascading operational failures."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the Coherence Gap in enterprise organizations?",
+      "name": "What is the coherence gap in enterprise organizations?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Coherence Gap is the 30-50% divergence between how an organization's systems, documentation, and policies say things work (designed intent) and how people actually do the work (enacted practice). Every organization has a coherence gap. It consists of workarounds, unofficial processes, relationship-based exceptions, and judgment calls that are never documented but are essential for operations. The coherence gap is the primary reason 70-80% of enterprise modernization projects fail and why AI implementations get stuck in pilot purgatory — the AI is trained on documentation that doesn't reflect reality."
+        "text": "The coherence gap is the 30-50% divergence between how an organization's systems, documentation, and policies say things work (designed intent) and how people actually do the work (enacted practice). Every organization has a coherence gap. It consists of workarounds, unofficial processes, relationship-based exceptions, and judgment calls that are never documented but are essential for operations. The coherence gap is the primary reason 70-80% of enterprise modernization projects fail and why AI implementations get stuck in pilot purgatory — the AI is trained on documentation that doesn't reflect reality."
       }
     },
     {
@@ -152,7 +151,7 @@
       "name": "What is Human Process Mapping?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Human Process Mapping (HPM) is ABRAXIS's approach to capturing the human layer of organizational operations. This is the underlying technology process that powers the Role Continuity Engine. While process mining tools like Celonis and SAP Signavio map the digital exhaust of enterprise systems (the machine's world), HPM maps the human world — the decisions, workarounds, relationships, and judgment calls that happen between and around system interactions. HPM produces a living organizational model that bridges the coherence gap between how documentation says things work and how people actually get things done."
+        "text": "Human Process Mapping (HPM) is ABRAXIS's approach to capturing the human layer of organizational operations. While process mining tools like Celonis and SAP Signavio map the digital exhaust of enterprise systems (the machine's world), HPM maps the human world — the decisions, workarounds, relationships, and judgment calls that happen between and around system interactions. HPM produces a living organizational model that bridges the coherence gap between how documentation says things work and how people actually get things done."
       }
     },
     {
@@ -174,6 +173,7 @@
   ]
 }
 </script>
+
 
 <!-- Schema.org: Book -->
 <script type="application/ld+json">
@@ -448,6 +448,8 @@
     line-height: 1.75; max-width: 720px;
   }
 
+
+
   /* BOOK SECTION */
   .book-section {
     padding: 100px 48px;
@@ -468,19 +470,13 @@
     gap: 64px; align-items: center;
     position: relative; z-index: 1;
   }
-  .book-cover-wrap {
-    position: relative;
-  }
+  .book-cover-wrap { position: relative; }
   .book-cover-wrap iframe {
     width: 340px; height: 500px;
     border: none; border-radius: 8px;
-    box-shadow:
-      0 20px 60px rgba(0,0,0,0.5),
-      0 0 80px rgba(209,0,70,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 80px rgba(209,0,70,0.08);
   }
-  .book-text {
-    display: flex; flex-direction: column; gap: 20px;
-  }
+  .book-text { display: flex; flex-direction: column; gap: 20px; }
   .book-badge {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 6px 16px; border-radius: 20px; width: fit-content;
@@ -506,9 +502,6 @@
     font-size: 0.85rem; color: var(--gray-mid);
     letter-spacing: 0.04em;
   }
-  .book-buttons {
-    display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px;
-  }
   .book-btn {
     display: inline-flex; align-items: center; gap: 10px;
     padding: 13px 28px; border-radius: 8px;
@@ -516,25 +509,14 @@
     font-family: inherit; cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .book-btn:hover {
-    transform: translateY(-2px);
-  }
-  .book-btn-pdf {
-    background: var(--gradient); color: #fff;
-  }
-  .book-btn-pdf:hover {
-    box-shadow: 0 6px 24px rgba(209,0,70,0.35);
-  }
-  .book-btn svg {
-    width: 18px; height: 18px; flex-shrink: 0;
-  }
+  .book-btn:hover { transform: translateY(-2px); }
+  .book-btn-pdf { background: var(--gradient); color: #fff; }
+  .book-btn-pdf:hover { box-shadow: 0 6px 24px rgba(209,0,70,0.35); }
   .book-meta {
     display: flex; gap: 24px; flex-wrap: wrap;
     font-size: 12px; color: var(--gray); text-transform: uppercase;
     letter-spacing: 0.06em;
   }
-
-  /* EXCERPT CARDS */
   .excerpts-grid {
     max-width: 1060px; margin: 64px auto 0;
     display: grid; grid-template-columns: 1fr 1fr;
@@ -544,14 +526,11 @@
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 12px; padding: 32px;
-    position: relative;
-    transition: border-color 0.3s;
+    position: relative; transition: border-color 0.3s;
   }
-  .excerpt-card:hover {
-    border-color: rgba(209,0,70,0.25);
-  }
+  .excerpt-card:hover { border-color: rgba(209,0,70,0.25); }
   .excerpt-card::before {
-    content: '"';
+    content: '\201C';
     position: absolute; top: 16px; left: 20px;
     font-family: 'DM Serif Display', Georgia, serif;
     font-size: 4rem; line-height: 1; color: rgba(209,0,70,0.15);
@@ -568,21 +547,28 @@
     color: var(--gray-light); font-style: italic;
     margin: 0; padding: 0; border: none;
   }
-
   @media (max-width: 900px) {
     .book-section { padding: 64px 24px; }
-    .book-inner {
-      grid-template-columns: 1fr;
-      gap: 40px; text-align: center;
-    }
+    .book-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
     .book-cover-wrap { justify-self: center; }
     .book-cover-wrap iframe { width: 280px; height: 410px; }
     .book-badge { margin: 0 auto; }
     .book-desc { max-width: 100%; }
-    .book-buttons { justify-content: center; }
     .book-btn { justify-content: center; width: 100%; }
     .book-meta { justify-content: center; }
     .excerpts-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ASSESSMENT BRIDGE (after stats bar) */
+  .assessment-bridge {
+    text-align: center;
+    padding: 32px 48px;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .assessment-bridge p {
+    font-size: 0.95rem; color: var(--gray-mid);
+    margin-bottom: 16px;
   }
 
   /* CTA SECTION */
@@ -644,6 +630,7 @@
     .nav-links a:not(.nav-cta) { display: none; }
     .hero { padding: 120px 24px 80px; }
     .stats-bar { flex-direction: column; gap: 32px; padding: 36px 24px; }
+    .assessment-bridge { padding: 24px; }
     section { padding: 64px 24px; }
     .problem-grid { grid-template-columns: 1fr; }
     .runs { grid-template-columns: 1fr; }
@@ -671,7 +658,7 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-badge">🔴 New: "Soul for the New Machines" — <a href="#book" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">Free when you Join the Waitlist ↓</a></div>
+  <div class="hero-badge">🔴 Now Accepting Early Access Applications</div>
 
   <h1>Your best people are leaving.<br>Their knowledge <em>doesn't have to.</em></h1>
 
@@ -724,6 +711,16 @@
   </div>
 </div>
 
+
+<!-- ASSESSMENT BRIDGE — catches intrigued visitors not ready to commit email -->
+<div class="assessment-bridge">
+  <p>Want to see where your organization stands?</p>
+  <a href="https://chatgpt.com/g/g-6994c336f1b88191b39f7f8cfee607c5-role-continuity-assessment" target="_blank" rel="noopener" class="gpt-link">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    Try the free Role Continuity Assessment →
+  </a>
+</div>
+
 <!-- BOOK SECTION -->
 <section id="book" class="book-section">
   <div class="book-inner">
@@ -746,32 +743,22 @@
       </a>
     </div>
   </div>
-
-  <!-- EXCERPTS -->
   <div class="excerpts-grid">
     <div class="excerpt-card">
       <div class="excerpt-chapter">From the Introduction</div>
-      <blockquote>
-        "The department wasn't failing because of its people. It was failing because twenty-three years of accumulated intelligence had walked out the door in a cake-and-a-card ceremony, and nobody had realized how much of that intelligence was invisible."
-      </blockquote>
+      <blockquote>"The department wasn't failing because of its people. It was failing because twenty-three years of accumulated intelligence had walked out the door in a cake-and-a-card ceremony, and nobody had realized how much of that intelligence was invisible."</blockquote>
     </div>
     <div class="excerpt-card">
       <div class="excerpt-chapter">From Chapter 1: The Conspiracy of Silence</div>
-      <blockquote>
-        "Here is something that everyone in every organization knows and nobody says out loud: the documentation is wrong. Not wrong in a dramatic, scandalous way. Wrong in a quiet, pervasive, completely normalized way."
-      </blockquote>
+      <blockquote>"Here is something that everyone in every organization knows and nobody says out loud: the documentation is wrong. Not wrong in a dramatic, scandalous way. Wrong in a quiet, pervasive, completely normalized way."</blockquote>
     </div>
     <div class="excerpt-card">
       <div class="excerpt-chapter">From Chapter 4: Campfire Mode</div>
-      <blockquote>
-        "The most valuable and most fragile knowledge in any organization lives between people — in the handoffs, coordination patterns, and shared heuristics that a team has evolved through years of working together. No individual can provide this knowledge alone."
-      </blockquote>
+      <blockquote>"The most valuable and most fragile knowledge in any organization lives between people — in the handoffs, coordination patterns, and shared heuristics that a team has evolved through years of working together. No individual can provide this knowledge alone."</blockquote>
     </div>
     <div class="excerpt-card">
       <div class="excerpt-chapter">From the Foreword</div>
-      <blockquote>
-        "The machines never ask. They just rocket in any direction you give them. It's not their 'fault' that disaster often ensues — it's the GPS coordinates we give them that are faulty."
-      </blockquote>
+      <blockquote>"The machines never ask. They just rocket in any direction you give them. It's not their 'fault' that disaster often ensues — it's the GPS coordinates we give them that are faulty."</blockquote>
     </div>
   </div>
 </section>
@@ -833,8 +820,8 @@
   <h2>Frequently asked questions</h2>
 
   <div class="faq-item">
-    <h3>What is role continuity?</h3>
-    <p>Role continuity is the practice of ensuring that organizational knowledge, relationships, and decision-making capability persist across personnel transitions. It goes beyond traditional knowledge management — which captures what people write down — to capture what people actually do: the workarounds, judgment calls, relationship context, and tribal knowledge that exist only in their heads. Without role continuity practices, organizations lose an estimated 42% of role-specific knowledge every time a key employee departs.</p>
+    <h3>What is Role Continuity?</h3>
+    <p>Role Continuity is the practice of ensuring that organizational knowledge, relationships, and decision-making capability persist across personnel transitions. It goes beyond traditional knowledge management — which captures what people write down — to capture what people actually do: the workarounds, judgment calls, relationship context, and tribal knowledge that exist only in their heads. Without Role Continuity practices, organizations lose an estimated 42% of role-specific knowledge every time a key employee departs.</p>
   </div>
 
   <div class="faq-item">
@@ -866,6 +853,14 @@
     <h3>Can I try a free assessment?</h3>
     <p>Yes. We've built a free Role Continuity Assessment tool available as a ChatGPT Custom GPT. It walks you through 10 diagnostic questions about your organization and provides a scored risk assessment across five dimensions. Search "Role Continuity Assessment" in ChatGPT, or join our waitlist to be first in line when the full platform opens for early access.</p>
   </div>
+
+  <!-- Assessment CTA — logical next step after FAQ answer -->
+  <div style="text-align: center; padding: 40px 0 16px;">
+    <a href="https://chatgpt.com/g/g-6994c336f1b88191b39f7f8cfee607c5-role-continuity-assessment" target="_blank" rel="noopener" class="gpt-link" style="font-size: 15px; padding: 14px 28px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Try the free Role Continuity Assessment →
+    </a>
+  </div>
 </section>
 
 <!-- FINAL CTA -->
@@ -891,17 +886,12 @@
     <button type="submit">Join the Waitlist</button>
   </form>
 
-  <a href="https://chatgpt.com/g/g-6994c336f1b88191b39f7f8cfee607c5-role-continuity-assessment" target="_blank" rel="noopener">Try the free Role Continuity Assessment →</a>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-    Try the free Role Continuity Assessment →
-  </a>
-
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-tagline">The Whole Enterprise Truth.</div>
-  <p>&copy; 2026 ABRAXIS Inc. &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#f09398829983b091928291889983de9199"><span class="__cf_email__" data-cfemail="13707b617a6053727161726b7a603d727a">[email&#160;protected]</span></a> &nbsp;·&nbsp; San Francisco, CA</p>
+  <p>&copy; 2026 ABRAXIS Inc. &nbsp;·&nbsp; <a href="mailto:chris@tacity.co">chris@tacity.co</a> &nbsp;·&nbsp; San Francisco, CA</p>
 </footer>
 
 <!--
