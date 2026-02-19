@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="https://abraxis.io/favicon.ico" type="image/x-icon">
   <title>Apply for Early Access | ABRAXIS</title>
   <meta name="description" content="Apply for early access to the ABRAXIS Role Continuity Engine. Complete a quick assessment and join the founding cohort.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -506,7 +507,7 @@
 
   <!-- HEADER -->
   <header class="site-header">
-      <a href="https://abraxis.io"><img src="https://images.squarespace-cdn.com/content/v1/69239007eb510014af879b35/94ce2db1-eb30-4768-86df-d0d7d90429d9/logo-web-font-rev.png" style="height: 60px; width: auto;"></a>
+    <a href="https://abraxis.io" class="logo">ABRAXIS</a>
     <span class="tagline">The Whole Enterprise Truth</span>
   </header>
 
@@ -549,12 +550,13 @@
       │     (Audience → Settings → Audience fields and merge tags):     │
       │     FNAME       First Name  (default)                           │
       │     LNAME       Last Name   (default)                           │
-      │     MMERGE3     Organization  (text)                            │
-      │     MMERGE4     Title         (text)                            │
-      │     MMERGE5     Industry      (text)                            │
-      │     MMERGE6     Org Size      (text)                            │
-      │     MMERGE7     Source        (text)                            │
-      │     MMERGE8     Assessment    (text, long)                      │
+      │     COMPANY     Company       (text) — shared with waitlist      │
+      │     TITLE       Title         (text) — shared with waitlist      │
+      │     MMERGE3     Industry      (text)                            │
+      │     MMERGE4     Org Size      (text)                            │
+      │     MMERGE5     Source        (text)                            │
+      │     MMERGE6     Assessment    (text, long)                      │
+      │     MMERGE7     Interest Type (text)                            │
       │                                                                 │
       │  5. Create TAGS: waitlist, ebook-download, early-access         │
       └─────────────────────────────────────────────────────────────────┘
@@ -773,6 +775,20 @@
           <div class="field-error" id="err-title">Please enter your title.</div>
         </div>
 
+        <div class="form-group">
+          <label class="form-label">I'm interested in ABRAXIS as:<span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="interest_type" value="Enterprise — for my organization" required checked>
+              <span class="radio-label">Enterprise — I want to deploy Role Continuity in my organization</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="interest_type" value="Partner — to implement for clients">
+              <span class="radio-label">Implementation Partner — I want to use the framework with my clients</span>
+            </label>
+          </div>
+        </div>
+
         <!-- EOI -->
         <div class="eoi-box">
           <h3>Expression of Interest — Early Access Program</h3>
@@ -794,10 +810,11 @@
         </div>
 
         <!-- Hidden fields for Mailchimp -->
-        <input type="hidden" name="MMERGE5" id="mc-industry" value="">
-        <input type="hidden" name="MMERGE6" id="mc-orgsize" value="">
-        <input type="hidden" name="MMERGE7" id="mc-source" value="early-access">
-        <input type="hidden" name="MMERGE8" id="mc-assessment" value="">
+        <input type="hidden" name="MMERGE3" id="mc-industry" value="">
+        <input type="hidden" name="MMERGE4" id="mc-orgsize" value="">
+        <input type="hidden" name="MMERGE5" id="mc-source" value="early-access">
+        <input type="hidden" name="MMERGE6" id="mc-assessment" value="">
+        <input type="hidden" name="MMERGE7" id="mc-interest" value="">
 
         <div class="form-nav">
           <button type="button" class="btn btn-secondary" onclick="prevSection(3)">← Back</button>
@@ -842,9 +859,9 @@
     // ┌─────────────────────────────────────────────────────────────────┐
     // │  MAILCHIMP CONFIG — Replace these 3 values                     │
     // └─────────────────────────────────────────────────────────────────┘
-    const MC_DC   = 'REPLACE_DC';       // e.g. 'us14'
-    const MC_U    = 'REPLACE_U';        // your user ID
-    const MC_ID   = 'REPLACE_LIST_ID';  // your audience ID
+    const MC_DC   = 'us20';
+    const MC_U    = '57e45faf2c1535476eac4d3f3';
+    const MC_ID   = '38ee67e43b';
 
     // ─── SECTION NAVIGATION ───
     let currentSection = 1;
@@ -1095,6 +1112,10 @@
         // Pack all assessment answers into one merge field
         document.getElementById('mc-assessment').value = collectAssessmentData();
 
+        // Interest type
+        const interestType = document.querySelector('input[name="interest_type"]:checked');
+        document.getElementById('mc-interest').value = interestType ? interestType.value : '';
+
         // Source tracking
         const params = new URLSearchParams(window.location.search);
         const source = params.get('src') || params.get('utm_source') || 'early-access';
@@ -1105,12 +1126,14 @@
           EMAIL: emailField.value,
           FNAME: firstName,
           LNAME: lastName,
-          MMERGE3: orgField.value,
-          MMERGE4: titleField.value,
-          MMERGE5: document.getElementById('mc-industry').value,
-          MMERGE6: document.getElementById('mc-orgsize').value,
-          MMERGE7: document.getElementById('mc-source').value,
-          MMERGE8: document.getElementById('mc-assessment').value,
+          COMPANY: orgField.value,
+          TITLE: titleField.value,
+          MMERGE3: document.getElementById('mc-industry').value,
+          MMERGE4: document.getElementById('mc-orgsize').value,
+          MMERGE5: document.getElementById('mc-source').value,
+          MMERGE6: document.getElementById('mc-assessment').value,
+          MMERGE7: document.getElementById('mc-interest').value,
+          'b_57e45faf2c1535476eac4d3f3_38ee67e43b': '',
         };
 
         const resp = await subscribeToMailchimp(mcParams);
