@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for Early Access | ABRAXIS</title>
+  <meta name="description" content="Apply for early access to the ABRAXIS Role Continuity Engine. Complete a quick assessment and join the founding cohort.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand-dark: #0F0F1A;
+      --brand-deep: #1A1A2E;
+      --brand-accent: #4A90D9;
+      --brand-accent-light: #6BA5E7;
+      --brand-gold: #D4A847;
+      --brand-surface: #F7F8FA;
+      --brand-card: #FFFFFF;
+      --text-primary: #1A1A2E;
+      --text-secondary: #5A5A72;
+      --text-muted: #8A8A9E;
+      --border: #E2E4EA;
+      --border-focus: #4A90D9;
+      --success: #2E7D32;
+      --success-bg: #E8F5E9;
+      --error: #C62828;
+      --error-bg: #FFEBEE;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--brand-surface);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─── */
+    .site-header {
+      background: var(--brand-dark);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header .logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #fff;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+    }
+    .site-header .tagline {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, #16213E 50%, var(--brand-deep) 100%);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 50%, rgba(74, 144, 217, 0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 50%, rgba(212, 168, 71, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: #fff;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ─── MAIN CONTAINER ─── */
+    .main-container {
+      max-width: 720px;
+      margin: -1.5rem auto 3rem;
+      padding: 0 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── PROGRESS ─── */
+    .progress-bar {
+      background: var(--brand-card);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+    .progress-steps {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .progress-step {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: all 0.3s ease;
+    }
+    .progress-step.active {
+      background: var(--brand-accent);
+      box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.2);
+    }
+    .progress-step.completed {
+      background: var(--success);
+    }
+    .progress-connector {
+      width: 2rem;
+      height: 2px;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+    .progress-connector.completed {
+      background: var(--success);
+    }
+    .progress-label {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ─── SECTIONS ─── */
+    .form-section {
+      background: var(--brand-card);
+      border-radius: 12px;
+      padding: 2rem 2rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+      display: none;
+    }
+    .form-section.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+    .section-header p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* ─── FORM ELEMENTS ─── */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+    .form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .form-label .required {
+      color: var(--error);
+      margin-left: 2px;
+    }
+    .form-sublabel {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+    .form-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.1);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8A9E' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.5rem;
+    }
+
+    /* ─── CHECKBOX / RADIO GROUPS ─── */
+    .option-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.7rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .option-item:hover {
+      border-color: var(--brand-accent);
+      background: rgba(74, 144, 217, 0.03);
+    }
+    .option-item.selected {
+      border-color: var(--brand-accent);
+      background: rgba(74, 144, 217, 0.06);
+    }
+    .option-item input[type="checkbox"],
+    .option-item input[type="radio"] {
+      margin-top: 2px;
+      accent-color: var(--brand-accent);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .option-item label {
+      cursor: pointer;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--text-primary);
+    }
+    .option-other-input {
+      margin-top: 0.5rem;
+      margin-left: 1.8rem;
+      display: none;
+    }
+    .option-other-input.visible {
+      display: block;
+    }
+
+    /* ─── EOI SECTION ─── */
+    .eoi-box {
+      background: linear-gradient(135deg, #F8FAFF 0%, #F0F4F8 100%);
+      border: 1.5px solid var(--brand-accent);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .eoi-box h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--brand-deep);
+      margin-bottom: 0.75rem;
+    }
+    .eoi-box p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      line-height: 1.55;
+    }
+    .eoi-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0;
+    }
+    .eoi-box li {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .eoi-box li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--brand-accent);
+      font-weight: 700;
+    }
+    .eoi-accept {
+      margin-top: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.75rem;
+      background: #fff;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+    }
+    .eoi-accept input {
+      margin-top: 3px;
+      accent-color: var(--brand-accent);
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .eoi-accept label {
+      font-size: 0.88rem;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    /* ─── NAVIGATION ─── */
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--brand-accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--brand-accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(74, 144, 217, 0.25);
+    }
+    .btn-primary:disabled {
+      background: #B0B8C8;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1.5px solid var(--border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--text-secondary);
+      color: var(--text-primary);
+    }
+    .btn-submit {
+      background: var(--brand-deep);
+      color: #fff;
+      padding: 0.85rem 2rem;
+      font-size: 1rem;
+    }
+    .btn-submit:hover {
+      background: #252545;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(26, 26, 46, 0.3);
+    }
+    .btn-submit:disabled {
+      background: #B0B8C8;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ─── SUCCESS SCREEN ─── */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .success-screen.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--success-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 1.8rem;
+    }
+    .success-screen h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+    .success-screen p {
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto 1.5rem;
+    }
+    .success-next {
+      background: var(--brand-surface);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: left;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .success-next h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .success-next p {
+      font-size: 0.85rem;
+      margin-bottom: 0.35rem;
+    }
+
+    /* ─── VALIDATION ─── */
+    .field-error {
+      color: var(--error);
+      font-size: 0.78rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    .field-error.visible {
+      display: block;
+    }
+    input.invalid, select.invalid {
+      border-color: var(--error);
+    }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .site-footer a {
+      color: var(--brand-accent);
+      text-decoration: none;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .hero { padding: 2.5rem 1.25rem 2rem; }
+      .form-section { padding: 1.5rem 1.25rem; }
+      .site-header { padding: 0.75rem 1.25rem; }
+      .form-nav { flex-direction: column-reverse; gap: 0.75rem; }
+      .form-nav .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="https://abraxis.io" class="logo">ABRAXIS</a>
+    <span class="tagline">The Whole Enterprise Truth</span>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Apply for Early Access</h1>
+    <p>Complete a quick assessment and join the founding cohort of organizations building role continuity infrastructure.</p>
+  </section>
+
+  <!-- MAIN -->
+  <main class="main-container">
+
+    <!-- PROGRESS -->
+    <div class="progress-bar">
+      <div class="progress-steps">
+        <div class="progress-step active" id="prog-1"></div>
+        <div class="progress-connector" id="conn-1"></div>
+        <div class="progress-step" id="prog-2"></div>
+        <div class="progress-connector" id="conn-2"></div>
+        <div class="progress-step" id="prog-3"></div>
+        <div class="progress-connector" id="conn-3"></div>
+        <div class="progress-step" id="prog-4"></div>
+      </div>
+      <div class="progress-label" id="progress-label">Step 1 of 4 — Your Organization</div>
+    </div>
+
+    <!-- FORM -->
+    <!--
+      ┌─────────────────────────────────────────────────────────────────┐
+      │  MAILCHIMP SETUP                                                │
+      │                                                                 │
+      │  1. Replace REPLACE_DC with your data center (e.g. us14)        │
+      │  2. Replace REPLACE_U with your Mailchimp user ID               │
+      │  3. Replace REPLACE_LIST_ID with your audience/list ID          │
+      │                                                                 │
+      │  Find these in: Audience → Signup forms → Embedded forms        │
+      │  The form action URL contains all three values.                 │
+      │                                                                 │
+      │  4. Create these MERGE FIELDS in Mailchimp                      │
+      │     (Audience → Settings → Audience fields and merge tags):     │
+      │     FNAME       First Name  (default)                           │
+      │     LNAME       Last Name   (default)                           │
+      │     MMERGE3     Organization  (text)                            │
+      │     MMERGE4     Title         (text)                            │
+      │     MMERGE5     Industry      (text)                            │
+      │     MMERGE6     Org Size      (text)                            │
+      │     MMERGE7     Source        (text)                            │
+      │     MMERGE8     Assessment    (text, long)                      │
+      │                                                                 │
+      │  5. Create TAGS: waitlist, ebook-download, early-access         │
+      └─────────────────────────────────────────────────────────────────┘
+    -->
+    <form id="earlyAccessForm" method="POST" novalidate>
+
+      <!-- ═══ SECTION 1: ORGANIZATIONAL PROFILE ═══ -->
+      <div class="form-section active" id="section-1">
+        <div class="section-header">
+          <h2>Your Organization</h2>
+          <p>Help us understand your organizational context so we can tailor the early access experience.</p>
+        </div>
+
+        <!-- Two-Path Fork -->
+        <div class="form-group" id="path-fork" style="margin-bottom: 2rem;">
+          <label class="form-label">Have you already completed a Role Continuity Assessment?</label>
+          <span class="form-sublabel" style="margin-bottom: 0.75rem; display: block;">Our free ChatGPT-based assessment provides a scored diagnostic. If you've done it, we can fast-track your application.</span>
+          <div class="option-group">
+            <label class="option-item" id="path-a-item" style="border-color: var(--brand-accent); background: rgba(74,144,217,0.03);">
+              <input type="radio" name="assessment_path" value="has_assessment" id="path-a">
+              <label><strong>Yes — I have my assessment</strong><br><span style="font-size:0.82rem; color:var(--text-muted);">Email my PDF to fast-track, then skip to contact details</span></label>
+            </label>
+            <label class="option-item" id="path-b-item">
+              <input type="radio" name="assessment_path" value="no_assessment" id="path-b" checked>
+              <label><strong>Not yet — I’ll answer a few questions instead</strong><br><span style="font-size:0.82rem; color:var(--text-muted);">Takes about 3 minutes. We’ll walk you through it.</span></label>
+            </label>
+          </div>
+
+          <!-- Path A: Fast-track panel (hidden by default) -->
+          <div id="path-a-panel" style="display:none; margin-top:1rem; background: linear-gradient(135deg, #F8FAFF 0%, #F0F4F8 100%); border: 1.5px solid var(--brand-accent); border-radius: 10px; padding: 1.25rem;">
+            <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:0.75rem; line-height:1.5;">Great — skip ahead to contact details and submit your application. We’ll ask you to email your assessment PDF after you submit so we can fast-track your review.</p>
+            <button type="button" id="skip-to-contact" class="btn btn-primary" style="font-size:0.85rem; padding:0.6rem 1.1rem;">Skip to Contact Details →</button>
+            <div class="form-hint" style="margin-top:0.65rem;">Don’t have the assessment yet? <a href="https://chatgpt.com/g/g-6994c336f1b88191b39f7f8cfee607c5-role-continuity-assessment" target="_blank" rel="noopener" style="color:var(--brand-accent); font-weight:600;">Take the free assessment on ChatGPT →</a></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What industry is your organization in?<span class="required">*</span></label>
+          <select name="industry" required>
+            <option value="" disabled selected>Select your industry</option>
+            <option value="Financial Services / Banking">Financial Services / Banking</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Healthcare / Life Sciences">Healthcare / Life Sciences</option>
+            <option value="Energy / Utilities">Energy / Utilities</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Government / Public Sector">Government / Public Sector</option>
+            <option value="Technology / Software">Technology / Software</option>
+            <option value="Telecommunications">Telecommunications</option>
+            <option value="Retail / Consumer">Retail / Consumer</option>
+            <option value="Professional Services / Consulting">Professional Services / Consulting</option>
+            <option value="Education">Education</option>
+            <option value="Transportation / Logistics">Transportation / Logistics</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">How many employees does your organization have?<span class="required">*</span></label>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="org_size" value="Under 100" required><label>Under 100</label></label>
+            <label class="option-item"><input type="radio" name="org_size" value="100-500"><label>100–500</label></label>
+            <label class="option-item"><input type="radio" name="org_size" value="500-2000"><label>500–2,000</label></label>
+            <label class="option-item"><input type="radio" name="org_size" value="2000-10000"><label>2,000–10,000</label></label>
+            <label class="option-item"><input type="radio" name="org_size" value="10000+"><label>10,000+</label></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What is your role?<span class="required">*</span></label>
+          <input type="text" name="role" placeholder="e.g. VP Operations, CHRO, Director of IT" required>
+        </div>
+
+        <div class="form-nav">
+          <div></div>
+          <button type="button" class="btn btn-primary" onclick="nextSection(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- ═══ SECTION 2: KNOWLEDGE RISK ═══ -->
+      <div class="form-section" id="section-2">
+        <div class="section-header">
+          <h2>Knowledge Risk</h2>
+          <p>Understanding where your organization is most vulnerable to knowledge loss.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">How many roles would you consider 'critical' — meaning if that person left tomorrow, it would cause significant disruption?<span class="required">*</span></label>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="critical_roles" value="1-3" required><label>1–3</label></label>
+            <label class="option-item"><input type="radio" name="critical_roles" value="4-10"><label>4–10</label></label>
+            <label class="option-item"><input type="radio" name="critical_roles" value="11-25"><label>11–25</label></label>
+            <label class="option-item"><input type="radio" name="critical_roles" value="25+"><label>25+</label></label>
+            <label class="option-item"><input type="radio" name="critical_roles" value="Not sure"><label>Not sure, and that worries me</label></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">If a critical person left today, how much of what they do is genuinely documented?<span class="required">*</span></label>
+          <span class="form-sublabel">Not "we have an SOP somewhere" — documentation a replacement could actually follow.</span>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="documentation" value="Almost nothing" required><label>Almost nothing — it's mostly in their head</label></label>
+            <label class="option-item"><input type="radio" name="documentation" value="Maybe 25%"><label>Maybe 25% — basics are written down but the real knowledge isn't</label></label>
+            <label class="option-item"><input type="radio" name="documentation" value="About half"><label>About half — documented but not current or complete</label></label>
+            <label class="option-item"><input type="radio" name="documentation" value="75%+"><label>75%+ — we have good documentation practices</label></label>
+            <label class="option-item"><input type="radio" name="documentation" value="Nearly everything"><label>Nearly everything — we're rigorous about this</label></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Have you experienced a situation where someone left and it caused real operational disruption?<span class="required">*</span></label>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="past_disruption" value="Yes - significant" required><label>Yes — and it was significant</label></label>
+            <label class="option-item"><input type="radio" name="past_disruption" value="Yes - managed"><label>Yes — but we managed through it</label></label>
+            <label class="option-item"><input type="radio" name="past_disruption" value="Not yet - see it coming"><label>Not yet — but I can see it coming</label></label>
+            <label class="option-item"><input type="radio" name="past_disruption" value="No"><label>No — we haven't had this problem</label></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Are you currently involved in or planning any digital transformation, modernization, or AI implementation?</label>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="transformation" value="Active"><label>Yes — actively underway</label></label>
+            <label class="option-item"><input type="radio" name="transformation" value="Planning"><label>Yes — in planning stages</label></label>
+            <label class="option-item"><input type="radio" name="transformation" value="Considering"><label>Considering it</label></label>
+            <label class="option-item"><input type="radio" name="transformation" value="No"><label>No</label></label>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="btn btn-secondary" onclick="prevSection(1)">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="nextSection(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- ═══ SECTION 3: INTENT & TIMELINE ═══ -->
+      <div class="form-section" id="section-3">
+        <div class="section-header">
+          <h2>Your Interest</h2>
+          <p>Help us understand what's driving your interest and how we can best support you.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What's driving your interest in role continuity right now?<span class="required">*</span></label>
+          <span class="form-sublabel">Select all that apply</span>
+          <div class="option-group">
+            <label class="option-item"><input type="checkbox" name="trigger[]" value="Key person departing"><label>Key person departing or retiring soon</label></label>
+            <label class="option-item"><input type="checkbox" name="trigger[]" value="Digital transformation"><label>Active or planned digital transformation / modernization</label></label>
+            <label class="option-item"><input type="checkbox" name="trigger[]" value="Recent knowledge loss"><label>Recent knowledge loss incident that caused disruption</label></label>
+            <label class="option-item"><input type="checkbox" name="trigger[]" value="AI implementation concerns"><label>Preparing for AI implementation and concerned about knowledge gaps</label></label>
+            <label class="option-item"><input type="checkbox" name="trigger[]" value="Risk reduction"><label>General risk reduction / future-proofing</label></label>
+            <label class="option-item" id="trigger-other-item"><input type="checkbox" name="trigger[]" value="Other" id="trigger-other"><label>Other</label></label>
+          </div>
+          <div class="option-other-input" id="trigger-other-input">
+            <input type="text" name="trigger_other" placeholder="Please specify...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What's your timeline for addressing this?<span class="required">*</span></label>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="timeline" value="Immediately" required><label>Immediately — we have an active situation</label></label>
+            <label class="option-item"><input type="radio" name="timeline" value="This quarter"><label>This quarter — we're planning now</label></label>
+            <label class="option-item"><input type="radio" name="timeline" value="This year"><label>This year — it's on the roadmap</label></label>
+            <label class="option-item"><input type="radio" name="timeline" value="Exploring"><label>Exploring — building the case internally</label></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Would you be open to a 30-minute pilot conversation with the ABRAXIS team?<span class="required">*</span></label>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="pilot_interest" value="Yes" required><label>Yes — I'd welcome that</label></label>
+            <label class="option-item"><input type="radio" name="pilot_interest" value="Possibly"><label>Possibly — let me see the early access materials first</label></label>
+            <label class="option-item"><input type="radio" name="pilot_interest" value="Not yet"><label>Not yet — just want to stay informed for now</label></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Anything else you'd like us to know?</label>
+          <textarea name="additional_context" placeholder="Optional — tell us about your specific situation, challenges, or what you're hoping to learn..." rows="3"></textarea>
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="btn btn-secondary" onclick="prevSection(2)">← Back</button>
+          <button type="button" class="btn btn-primary" onclick="nextSection(4)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- ═══ SECTION 4: CONTACT + EOI ═══ -->
+      <div class="form-section" id="section-4">
+        <div class="section-header">
+          <h2>Complete Your Application</h2>
+          <p>Your contact information and expression of interest.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Full Name<span class="required">*</span></label>
+          <input type="text" name="name" required placeholder="Your full name">
+          <div class="field-error" id="err-name">Please enter your name.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Work Email<span class="required">*</span></label>
+          <input type="email" name="email" required placeholder="you@company.com">
+          <div class="field-error" id="err-email">Please enter a valid work email.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Organization<span class="required">*</span></label>
+          <input type="text" name="organization" required placeholder="Your company or organization name">
+          <div class="field-error" id="err-org">Please enter your organization name.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Title / Role<span class="required">*</span></label>
+          <input type="text" name="title" required placeholder="Your title or role">
+          <div class="field-error" id="err-title">Please enter your title.</div>
+        </div>
+
+        <!-- EOI -->
+        <div class="eoi-box">
+          <h3>Expression of Interest — Early Access Program</h3>
+          <p>By applying for early access, ABRAXIS commits to providing you with:</p>
+          <ul>
+            <li>Priority access to the Role Continuity Engine when available</li>
+            <li>Founding participant pricing locked for the early access period</li>
+            <li>Direct input into product development and feature priorities</li>
+            <li>Dedicated onboarding with the ABRAXIS founding team</li>
+            <li>Strict confidentiality of all organizational data shared</li>
+          </ul>
+          <p>In return, you express genuine interest in exploring ABRAXIS for your organization and willingness to participate in periodic feedback conversations (1–2 per month, ~30 minutes).</p>
+          <p><strong>This is not a binding agreement or purchase commitment.</strong> Either party may withdraw at any time.</p>
+          <div class="eoi-accept">
+            <input type="checkbox" id="eoi_accepted" name="eoi_accepted" value="yes" required>
+            <label for="eoi_accepted">I have read the above and wish to express my interest in the ABRAXIS Early Access Program.</label>
+          </div>
+          <div class="field-error" id="err-eoi">Please accept the Expression of Interest to continue.</div>
+        </div>
+
+        <!-- Hidden fields for Mailchimp -->
+        <input type="hidden" name="MMERGE5" id="mc-industry" value="">
+        <input type="hidden" name="MMERGE6" id="mc-orgsize" value="">
+        <input type="hidden" name="MMERGE7" id="mc-source" value="early-access">
+        <input type="hidden" name="MMERGE8" id="mc-assessment" value="">
+
+        <div class="form-nav">
+          <button type="button" class="btn btn-secondary" onclick="prevSection(3)">← Back</button>
+          <button type="submit" class="btn btn-submit" id="submit-btn">Submit Application</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- ═══ SUCCESS SCREEN ═══ -->
+    <div class="success-screen" id="success-screen">
+      <div class="success-icon">✓</div>
+      <h2>You're in.</h2>
+      <p>Thank you for applying to the ABRAXIS Early Access Program. We've received your application and we'll reach out within 48 hours with a personalized brief on how Role Continuity applies to your organization.</p>
+
+      <!-- Assessment email prompt (shown only for Path A users) -->
+      <div id="assessment-email-prompt" style="display:none; background: linear-gradient(135deg, #F8FAFF 0%, #F0F4F8 100%); border: 1.5px solid var(--border-focus); border-radius: 10px; padding: 1.25rem; margin: 1.5rem auto; max-width: 440px; text-align: left;">
+        <h3 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">📎 One last thing — send us your assessment</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.5;">Email your Role Continuity Assessment PDF so we can use your scores to fast-track your review and personalize your brief.</p>
+        <a href="mailto:chris@abraxis.ai?subject=Role%20Continuity%20Assessment%20-%20Early%20Access&amp;body=Hi%20Chris%2C%0A%0APlease%20find%20my%20Role%20Continuity%20Assessment%20attached.%0A%0AThanks!" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.6rem 1.1rem; background:var(--border-focus); color:#fff; border-radius:8px; font-size:0.85rem; font-weight:600; text-decoration:none; font-family:'DM Sans', sans-serif;">📧 Email Assessment to chris@abraxis.ai</a>
+      </div>
+
+      <div class="success-next">
+        <h3>What happens next:</h3>
+        <p>📧 Check your email for a confirmation from ABRAXIS.</p>
+        <p>📋 We'll review your application and prepare a personalized brief.</p>
+        <p>📞 Expect to hear from Chris Dollard within 48 hours.</p>
+      </div>
+      <p style="margin-top:1.5rem; font-size:0.85rem;">Know someone else who should take this assessment? <a href="https://abraxis.io/early-access" style="color:var(--brand-accent); font-weight:600;">Share the link →</a></p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>ABRAXIS, Inc. · <a href="https://abraxis.io">abraxis.io</a> · <a href="mailto:chris@tacity.co">chris@tacity.co</a></p>
+    <p style="margin-top:0.35rem;">2261 Market Street STE 74409, San Francisco, CA 94114</p>
+    <p style="margin-top:0.35rem;">All organizational data is treated as strictly confidential. <a href="mailto:privacy@tacity.co">Privacy inquiries</a></p>
+  </footer>
+
+  <script>
+    // ┌─────────────────────────────────────────────────────────────────┐
+    // │  MAILCHIMP CONFIG — Replace these 3 values                     │
+    // └─────────────────────────────────────────────────────────────────┘
+    const MC_DC   = 'REPLACE_DC';       // e.g. 'us14'
+    const MC_U    = 'REPLACE_U';        // your user ID
+    const MC_ID   = 'REPLACE_LIST_ID';  // your audience ID
+
+    // ─── SECTION NAVIGATION ───
+    let currentSection = 1;
+    const totalSections = 4;
+    const labels = [
+      'Step 1 of 4 — Your Organization',
+      'Step 2 of 4 — Knowledge Risk',
+      'Step 3 of 4 — Your Interest',
+      'Step 4 of 4 — Complete Application'
+    ];
+
+    function updateProgress(section) {
+      for (let i = 1; i <= totalSections; i++) {
+        const step = document.getElementById(`prog-${i}`);
+        const conn = document.getElementById(`conn-${i}`);
+        step.classList.remove('active', 'completed');
+        if (conn) conn.classList.remove('completed');
+        if (i < section) {
+          step.classList.add('completed');
+          if (conn) conn.classList.add('completed');
+        } else if (i === section) {
+          step.classList.add('active');
+        }
+      }
+      document.getElementById('progress-label').textContent = labels[section - 1];
+    }
+
+    function showSection(n) {
+      document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+      document.getElementById(`section-${n}`).classList.add('active');
+      currentSection = n;
+      updateProgress(n);
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    }
+
+    function validateSection(n) {
+      const section = document.getElementById(`section-${n}`);
+      let valid = true;
+
+      // Check radio groups
+      const radioGroups = {};
+      section.querySelectorAll('input[type="radio"][required]').forEach(r => {
+        radioGroups[r.name] = true;
+      });
+      for (const name of Object.keys(radioGroups)) {
+        if (!section.querySelector(`input[name="${name}"]:checked`)) {
+          valid = false;
+        }
+      }
+
+      // Check text/email/select
+      section.querySelectorAll('input[type="text"][required], input[type="email"][required], select[required]').forEach(f => {
+        if (!f.value.trim()) {
+          f.classList.add('invalid');
+          valid = false;
+        } else {
+          f.classList.remove('invalid');
+        }
+      });
+
+      // Check email format
+      const emailField = section.querySelector('input[type="email"]');
+      if (emailField && emailField.required && emailField.value) {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+          emailField.classList.add('invalid');
+          valid = false;
+        }
+      }
+
+      return valid;
+    }
+
+    function nextSection(n) {
+      if (validateSection(currentSection)) {
+        showSection(n);
+      } else {
+        const section = document.getElementById(`section-${currentSection}`);
+        section.style.animation = 'none';
+        section.offsetHeight;
+        section.style.animation = 'shake 0.4s ease';
+      }
+    }
+
+    function prevSection(n) {
+      showSection(n);
+    }
+
+    // ─── OPTION ITEM SELECTION VISUAL ───
+    document.querySelectorAll('.option-item').forEach(item => {
+      const input = item.querySelector('input');
+      input.addEventListener('change', () => {
+        if (input.type === 'radio') {
+          const group = item.closest('.option-group');
+          group.querySelectorAll('.option-item').forEach(i => i.classList.remove('selected'));
+        }
+        item.classList.toggle('selected', input.checked);
+      });
+    });
+
+    // ─── "OTHER" TRIGGER TOGGLE ───
+    document.getElementById('trigger-other').addEventListener('change', function() {
+      document.getElementById('trigger-other-input').classList.toggle('visible', this.checked);
+    });
+
+    // ─── COLLECT ASSESSMENT DATA INTO MERGE FIELD ───
+    function collectAssessmentData() {
+      const data = [];
+
+      // Section 1
+      const industry = document.querySelector('select[name="industry"]');
+      if (industry && industry.value) data.push('Industry: ' + industry.value);
+
+      const orgSize = document.querySelector('input[name="org_size"]:checked');
+      if (orgSize) data.push('Org Size: ' + orgSize.value);
+
+      const role = document.querySelector('input[name="role"]');
+      if (role && role.value) data.push('Role: ' + role.value);
+
+      // Section 2
+      const critRoles = document.querySelector('input[name="critical_roles"]:checked');
+      if (critRoles) data.push('Critical Roles: ' + critRoles.value);
+
+      const docs = document.querySelector('input[name="documentation"]:checked');
+      if (docs) data.push('Documentation: ' + docs.value);
+
+      const disruption = document.querySelector('input[name="past_disruption"]:checked');
+      if (disruption) data.push('Past Disruption: ' + disruption.value);
+
+      const transformation = document.querySelector('input[name="transformation"]:checked');
+      if (transformation) data.push('Transformation: ' + transformation.value);
+
+      // Section 3
+      const triggers = [];
+      document.querySelectorAll('input[name="trigger[]"]:checked').forEach(cb => {
+        triggers.push(cb.value);
+      });
+      if (triggers.length) data.push('Triggers: ' + triggers.join(', '));
+
+      const triggerOther = document.querySelector('input[name="trigger_other"]');
+      if (triggerOther && triggerOther.value) data.push('Trigger Other: ' + triggerOther.value);
+
+      const timeline = document.querySelector('input[name="timeline"]:checked');
+      if (timeline) data.push('Timeline: ' + timeline.value);
+
+      const pilot = document.querySelector('input[name="pilot_interest"]:checked');
+      if (pilot) data.push('Pilot Interest: ' + pilot.value);
+
+      const additional = document.querySelector('textarea[name="additional_context"]');
+      if (additional && additional.value.trim()) data.push('Notes: ' + additional.value.trim());
+
+      return data.join(' | ');
+    }
+
+    // ─── MAILCHIMP JSONP SUBSCRIBE ───
+    let mcResolve = null;
+
+    function mcCallback(resp) {
+      if (mcResolve) mcResolve(resp);
+    }
+
+    function subscribeToMailchimp(params) {
+      return new Promise((resolve) => {
+        mcResolve = resolve;
+
+        const baseUrl = `https://${MC_DC}.list-manage.com/subscribe/post-json?u=${MC_U}&id=${MC_ID}&c=mcCallback`;
+        const qs = new URLSearchParams(params).toString();
+
+        const script = document.createElement('script');
+        script.src = `${baseUrl}&${qs}`;
+        document.body.appendChild(script);
+
+        // Timeout fallback
+        setTimeout(() => {
+          resolve({ result: 'success' });
+          script.remove();
+        }, 5000);
+
+        script.onload = () => script.remove();
+        script.onerror = () => {
+          resolve({ result: 'error', msg: 'Network error' });
+          script.remove();
+        };
+      });
+    }
+
+    // ─── FORM SUBMISSION ───
+    const form = document.getElementById('earlyAccessForm');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // Validate section 4
+      const nameField = form.querySelector('input[name="name"]');
+      const emailField = form.querySelector('input[name="email"]');
+      const orgField = form.querySelector('input[name="organization"]');
+      const titleField = form.querySelector('input[name="title"]');
+      const eoi = document.getElementById('eoi_accepted');
+
+      let valid = true;
+
+      [
+        [nameField, 'err-name'],
+        [emailField, 'err-email'],
+        [orgField, 'err-org'],
+        [titleField, 'err-title'],
+      ].forEach(([field, errId]) => {
+        if (!field.value.trim()) {
+          field.classList.add('invalid');
+          document.getElementById(errId).classList.add('visible');
+          valid = false;
+        } else {
+          field.classList.remove('invalid');
+          document.getElementById(errId).classList.remove('visible');
+        }
+      });
+
+      if (emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+        emailField.classList.add('invalid');
+        document.getElementById('err-email').classList.add('visible');
+        valid = false;
+      }
+
+      if (!eoi.checked) {
+        document.getElementById('err-eoi').classList.add('visible');
+        valid = false;
+      } else {
+        document.getElementById('err-eoi').classList.remove('visible');
+      }
+
+      if (!valid) return;
+
+      // Disable button
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      try {
+        // Split name
+        const nameParts = (nameField.value || '').trim().split(/\s+/);
+        const firstName = nameParts[0] || '';
+        const lastName = nameParts.slice(1).join(' ') || '';
+
+        // Populate hidden merge fields
+        const industry = document.querySelector('select[name="industry"]');
+        const orgSize = document.querySelector('input[name="org_size"]:checked');
+        document.getElementById('mc-industry').value = industry ? industry.value : '';
+        document.getElementById('mc-orgsize').value = orgSize ? orgSize.value : '';
+
+        // Pack all assessment answers into one merge field
+        document.getElementById('mc-assessment').value = collectAssessmentData();
+
+        // Source tracking
+        const params = new URLSearchParams(window.location.search);
+        const source = params.get('src') || params.get('utm_source') || 'early-access';
+        document.getElementById('mc-source').value = source;
+
+        // Build Mailchimp params
+        const mcParams = {
+          EMAIL: emailField.value,
+          FNAME: firstName,
+          LNAME: lastName,
+          MMERGE3: orgField.value,
+          MMERGE4: titleField.value,
+          MMERGE5: document.getElementById('mc-industry').value,
+          MMERGE6: document.getElementById('mc-orgsize').value,
+          MMERGE7: document.getElementById('mc-source').value,
+          MMERGE8: document.getElementById('mc-assessment').value,
+        };
+
+        const resp = await subscribeToMailchimp(mcParams);
+
+        if (resp.result === 'error' && resp.msg && resp.msg.includes('already subscribed')) {
+          // Already subscribed is fine — still show success
+        } else if (resp.result === 'error' && resp.msg && !resp.msg.includes('already subscribed')) {
+          throw new Error(resp.msg);
+        }
+
+        // Success
+        form.style.display = 'none';
+        document.querySelector('.progress-bar').style.display = 'none';
+        document.getElementById('success-screen').classList.add('active');
+        // Show assessment email prompt only for Path A (has_assessment) users
+        if (document.getElementById('mc-source').value === 'assessment-upload') {
+          document.getElementById('assessment-email-prompt').style.display = 'block';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Submit Application';
+        alert('Something went wrong. Please try again, or email chris@abraxis.ai directly.');
+        console.error('Submission error:', err);
+      }
+    });
+
+    // ─── REMOVE VALIDATION ON INPUT ───
+    document.querySelectorAll('input, select, textarea').forEach(f => {
+      f.addEventListener('input', () => {
+        f.classList.remove('invalid');
+        const err = f.closest('.form-group')?.querySelector('.field-error');
+        if (err) err.classList.remove('visible');
+      });
+    });
+
+    // ─── PATH FORK: TOGGLE BETWEEN ASSESSMENT / MANUAL ───
+    document.querySelectorAll('input[name="assessment_path"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const panel = document.getElementById('path-a-panel');
+        if (this.value === 'has_assessment') {
+          panel.style.display = 'block';
+          panel.style.animation = 'fadeIn 0.4s ease';
+        } else {
+          panel.style.display = 'none';
+        }
+      });
+    });
+
+    // ─── SKIP TO CONTACT DETAILS (Path A) ───
+    document.getElementById('skip-to-contact').addEventListener('click', function() {
+      // Remove required from sections 1-3 fields when skipping
+      document.querySelectorAll('#section-1 [required], #section-2 [required], #section-3 [required]').forEach(el => {
+        el.removeAttribute('required');
+        el.dataset.wasRequired = 'true';
+      });
+      // Mark source as assessment-upload
+      document.getElementById('mc-source').value = 'assessment-upload';
+      // Jump to section 4
+      showSection(4);
+      // Show all progress as completed
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById('prog-' + i).classList.add('completed');
+        var conn = document.getElementById('conn-' + i);
+        if (conn) conn.classList.add('completed');
+      }
+    });
+
+    // Shake animation
+    var style = document.createElement('style');
+    style.textContent = '@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }';
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

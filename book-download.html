@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Copy of Soul for the New Machines — ABRAXIS</title>
+<meta name="description" content="Download your free copy of Soul for the New Machines. How Role Continuity Preserves and Extends Enterprise Human Intelligence.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #181A23;
+    --dark-mid: #232633;
+    --dark-surface: #1E2030;
+    --crimson: #D10046;
+    --orange: #FF4200;
+    --gold: #FFB133;
+    --gold-light: #FFC15C;
+    --gray: #7B7D85;
+    --gray-mid: #A7A8AD;
+    --gray-light: #D3D4D6;
+    --gradient: linear-gradient(135deg, var(--orange), var(--crimson));
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--dark);
+    color: #fff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 48px;
+    background: rgba(24, 26, 35, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  nav a { text-decoration: none; }
+  .nav-back {
+    font-size: 13px; color: var(--gray-mid); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: #fff; }
+
+  /* CONFIRMATION */
+  .confirmation {
+    text-align: center;
+    padding: 64px 48px 32px;
+    max-width: 600px; margin: 0 auto;
+  }
+  .confirm-icon {
+    width: 64px; height: 64px;
+    background: rgba(76, 175, 80, 0.12);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+  }
+  .confirmation h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 2rem; margin-bottom: 12px;
+  }
+  .confirmation p {
+    font-size: 1rem; color: var(--gray-mid); line-height: 1.7;
+  }
+
+  /* BOOK SECTION */
+  .book-section {
+    padding: 48px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .book-section::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 30% 50%, rgba(209,0,70,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 70% 40%, rgba(255,177,51,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .book-inner {
+    max-width: 960px; margin: 0 auto;
+    display: grid; grid-template-columns: 300px 1fr;
+    gap: 56px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .book-cover-wrap iframe {
+    width: 300px; height: 440px;
+    border: none; border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 80px rgba(209,0,70,0.08);
+  }
+  .book-text { display: flex; flex-direction: column; gap: 16px; }
+  .book-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 20px; width: fit-content;
+    background: rgba(76, 175, 80, 0.1); border: 1px solid rgba(76, 175, 80, 0.25);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #81C784;
+  }
+  .book-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    line-height: 1.15; color: #fff;
+  }
+  .book-title em { color: var(--crimson); font-style: italic; }
+  .book-subtitle {
+    font-size: 1rem; color: var(--gold-light);
+    font-style: italic; line-height: 1.5;
+  }
+  .book-desc {
+    font-size: 0.92rem; color: var(--gray-light);
+    line-height: 1.7;
+  }
+  .book-author {
+    font-size: 0.85rem; color: var(--gray-mid);
+    letter-spacing: 0.04em;
+  }
+  .book-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-size: 12px; color: var(--gray); text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .download-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 8px; border: none;
+    font-family: inherit; font-size: 15px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-pdf { background: var(--gradient); color: #fff; }
+  .btn-pdf:hover { box-shadow: 0 8px 24px rgba(209,0,70,0.3); }
+  .btn-epub {
+    background: var(--dark-surface); color: #fff;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .btn-epub:hover { border-color: rgba(255,255,255,0.25); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .btn-icon { width: 18px; height: 18px; }
+
+  /* DIVIDER */
+  .divider {
+    max-width: 960px; margin: 0 auto; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0.08) 70%, transparent);
+  }
+
+  /* EARLY ACCESS UPSELL */
+  .upsell {
+    max-width: 680px; margin: 0 auto;
+    padding: 80px 48px;
+    text-align: center;
+  }
+  .upsell-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 20px;
+    background: rgba(255,177,51,0.1); border: 1px solid rgba(255,177,51,0.2);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .upsell h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .upsell h2 em { color: var(--crimson); font-style: italic; }
+  .upsell > p {
+    font-size: 1rem; color: var(--gray-mid); line-height: 1.75;
+    margin-bottom: 32px;
+  }
+  .upsell-perks {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; text-align: left;
+    margin-bottom: 36px;
+  }
+  .perk {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.9rem; color: var(--gray-light); line-height: 1.5;
+  }
+  .perk-check {
+    width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(255,177,51,0.12);
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .perk-check svg { width: 12px; height: 12px; }
+  .perk strong { color: #fff; }
+  .btn-early-access {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 36px; border-radius: 8px; border: none;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark); font-family: inherit;
+    font-size: 16px; font-weight: 700;
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-early-access:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(255,177,51,0.25);
+  }
+  .upsell-hint {
+    margin-top: 20px;
+    font-size: 0.85rem; color: var(--gray);
+  }
+  .upsell-hint a {
+    color: var(--gray-mid); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .upsell-hint a:hover { color: #fff; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px 32px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-tagline {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 16px; color: var(--gray-mid);
+    margin-bottom: 12px; letter-spacing: 0.02em;
+  }
+  footer p { font-size: 12px; color: var(--gray); }
+  footer a { color: var(--gray-mid); text-decoration: none; }
+  footer a:hover { color: #fff; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 14px 24px; }
+    .confirmation { padding: 48px 24px 24px; }
+    .book-section { padding: 32px 24px 64px; }
+    .book-inner {
+      grid-template-columns: 1fr;
+      gap: 32px; text-align: center;
+    }
+    .book-cover-wrap { justify-self: center; }
+    .book-cover-wrap iframe { width: 260px; height: 380px; }
+    .book-badge { margin: 0 auto; }
+    .download-btns { justify-content: center; }
+    .upsell { padding: 56px 24px; }
+    .upsell-perks { grid-template-columns: 1fr; }
+    footer { padding: 32px 24px 24px; }
+  }
+  @media (max-width: 480px) {
+    .download-btns { flex-direction: column; }
+    .btn { justify-content: center; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://abraxis.io"><img src="https://images.squarespace-cdn.com/content/v1/69239007eb510014af879b35/94ce2db1-eb30-4768-86df-d0d7d90429d9/logo-web-font-rev.png" style="height: 60px; width: auto;"></a>
+  <a href="https://abraxis.io" class="nav-back">&larr; Back to abraxis.io</a>
+</nav>
+
+<!-- CONFIRMATION -->
+<div class="confirmation">
+  <div class="confirm-icon">&#10003;</div>
+  <h1>You're on the list.</h1>
+  <p>Welcome to the ABRAXIS waitlist. Here's your free copy of <em>Soul for the New Machines</em> &mdash; the book that defines the category of Role Continuity.</p>
+</div>
+
+<!-- BOOK PANEL + DOWNLOADS -->
+<section class="book-section">
+  <div class="book-inner">
+    <div class="book-cover-wrap">
+      <iframe src="https://soul-book-cover.vercel.app/" title="Soul for the New Machines &mdash; Animated Book Cover" loading="lazy" scrolling="no"></iframe>
+    </div>
+    <div class="book-text">
+      <div class="book-badge">&#10003; Yours &mdash; Free Download</div>
+      <h2 class="book-title">Soul for the <em>New Machines</em></h2>
+      <p class="book-subtitle">How Role Continuity Preserves &amp; Extends Enterprise Human Intelligence</p>
+      <p class="book-desc">Why 42% of what makes your organization work vanishes every time a key person walks out the door &mdash; and the architectural fix that changes everything. Defines the category of Role Continuity and introduces Campfire Mode for continuous team intelligence.</p>
+      <p class="book-author">By Chris Dollard &nbsp;&middot;&nbsp; Founder, ABRAXIS</p>
+      <div class="book-meta">
+        <span>~60 pages</span>
+        <span>90 min read</span>
+      </div>
+      <div class="download-btns">
+        <a href="https://www.abraxis.io/media/Soul_for_the_New_Machines.pdf" class="btn btn-pdf">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          Download PDF
+        </a>
+        <a href="https://www.abraxis.io/media/Soul_for_the_New_Machines.epub" class="btn btn-epub">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Download EPUB
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EARLY ACCESS UPSELL -->
+<section class="upsell">
+  <div class="upsell-label">&#9889; Go Deeper</div>
+  <h2>Ready to stop <em>reading</em> about the problem<br>and start <em>solving</em> it?</h2>
+  <p>The book describes the crisis and how the Role Continuity process can fix it. Take the next step and apply for Early Access to the ABRAXIS Role Continuity Engine and be among the first to capture what your people actually know &mdash; before it walks out the door.</p>
+
+  <div class="upsell-perks">
+    <div class="perk">
+      <div class="perk-check"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB133" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <span><strong>First access</strong> to the ABRAXIS platform when it launches</span>
+    </div>
+    <div class="perk">
+      <div class="perk-check"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB133" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <span><strong>Personalized brief</strong> on Role Continuity for your organization</span>
+    </div>
+    <div class="perk">
+      <div class="perk-check"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB133" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <span><strong>Direct line</strong> to the founding team during development</span>
+    </div>
+    <div class="perk">
+      <div class="perk-check"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB133" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <span><strong>Shape the roadmap</strong> &mdash; your use case informs what we build</span>
+    </div>
+  </div>
+
+  <a href="https://abraxis.io/early-access" class="btn-early-access">
+    Apply for Early Access &rarr;
+  </a>
+
+  <p class="upsell-hint">
+    Or <a href="https://chatgpt.com/g/g-6994c336f1b88191b39f7f8cfee607c5-role-continuity-assessment" target="_blank" rel="noopener">try the free Role Continuity Assessment</a> to see where your organization stands.
+  </p>
+</section>
+
+<footer>
+  <div class="footer-tagline">The Whole Enterprise Truth.</div>
+  <p>&copy; 2026 ABRAXIS Inc. &nbsp;&middot;&nbsp; <a href="mailto:chris@abraxis.ai">chris@abraxis.ai</a> &nbsp;&middot;&nbsp; San Francisco, CA</p>
+</footer>
+
+</body>
+</html>

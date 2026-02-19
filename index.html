@@ -664,7 +664,7 @@
 
   <p class="hero-sub">ABRAXIS is the Role Continuity Engine — AI infrastructure that captures the workarounds, judgment calls, and tribal knowledge that exist only in your people's heads. Before they walk out the door.</p>
 
-  <form class="waitlist-form" id="waitlist" action="MAILCHIMP_FORM_ACTION_URL" method="POST" target="_blank">
+  <form class="waitlist-form" id="waitlist-hero">
     <div class="form-row">
       <input type="text" name="FNAME" placeholder="First name" required aria-label="First name">
       <input type="text" name="LNAME" placeholder="Last name" required aria-label="Last name">
@@ -678,7 +678,7 @@
     </div>
     <!-- Mailchimp bot signup protection -->
     <div style="position: absolute; left: -5000px;" aria-hidden="true">
-      <input type="text" name="b_MAILCHIMP_U_VALUE_MAILCHIMP_ID_VALUE" tabindex="-1" value="">
+      <input type="text" name="b_57e45faf2c1535476eac4d3f3_38ee67e43b" tabindex="-1" value="">
     </div>
     <button type="submit">Join the Waitlist</button>
   </form>
@@ -868,7 +868,7 @@
   <h2>The human layer is <em>your competitive advantage.</em><br>Don't let it walk away.</h2>
   <p>Join the ABRAXIS waitlist to be the first to deploy the Role Continuity Engine in your organization</p>
 
-  <form class="waitlist-form" action="MAILCHIMP_FORM_ACTION_URL" method="POST" target="_blank">
+  <form class="waitlist-form" id="waitlist-footer">
     <div class="form-row">
       <input type="text" name="FNAME" placeholder="First name" required aria-label="First name">
       <input type="text" name="LNAME" placeholder="Last name" required aria-label="Last name">
@@ -881,7 +881,7 @@
       <input type="text" name="TITLE" placeholder="Title / Role" required aria-label="Job title">
     </div>
     <div style="position: absolute; left: -5000px;" aria-hidden="true">
-      <input type="text" name="b_MAILCHIMP_U_VALUE_MAILCHIMP_ID_VALUE" tabindex="-1" value="">
+      <input type="text" name="b_57e45faf2c1535476eac4d3f3_38ee67e43b" tabindex="-1" value="">
     </div>
     <button type="submit">Join the Waitlist</button>
   </form>
@@ -891,28 +891,65 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-tagline">The Whole Enterprise Truth.</div>
-  <p>&copy; 2026 ABRAXIS Inc. &nbsp;·&nbsp; <a href="mailto:chris@tacity.co">chris@tacity.co</a> &nbsp;·&nbsp; San Francisco, CA</p>
+  <p>&copy; 2026 ABRAXIS Inc. &nbsp;·&nbsp; <a href="mailto:chris@abraxis.ai">chris@abraxis.ai</a> &nbsp;·&nbsp; San Francisco, CA</p>
 </footer>
 
-<!--
-  MAILCHIMP SETUP (5 minutes):
+<script>
+(function() {
+  const MC_DC = 'us20';
+  const MC_U  = '57e45faf2c1535476eac4d3f3';
+  const MC_ID = '38ee67e43b';
+  const BOOK_URL = 'https://abraxis.io/book-download';
 
-  1. Log into Mailchimp → Audience → Signup Forms → Embedded Forms
-  2. Add merge fields: FNAME, LNAME, COMPANY, TITLE (these match the form above)
-     - Audience → Settings → Audience fields and *|MERGE|* tags
-     - Add "Company" as text field (merge tag: COMPANY)
-     - Add "Title" as text field (merge tag: TITLE)
-  3. Generate embedded form code
-  4. Find the form action URL — it looks like:
-     https://XXXXX.us21.list-manage.com/subscribe/post?u=XXXXXXX&amp;id=XXXXXXX
-  5. Replace BOTH "MAILCHIMP_FORM_ACTION_URL" in this file with that URL
-  6. Find the bot protection field name — it looks like:
-     b_XXXXXXX_XXXXXXX
-  7. Replace BOTH "b_MAILCHIMP_U_VALUE_MAILCHIMP_ID_VALUE" with that value
-  8. Done. Form submits directly to Mailchimp, styled with your design.
+  let mcResolve;
+  window.mcCallback = function(resp) { if (mcResolve) mcResolve(resp); };
 
-  TAGS TO ADD IN MAILCHIMP:
-  - Tag signups with "waitlist" and "abraxis.io" for segmentation
-  - Consider adding a hidden field for source (landing-page-hero vs landing-page-bottom)
+  function subscribeToMailchimp(params) {
+    return new Promise(function(resolve) {
+      mcResolve = resolve;
+      var baseUrl = 'https://' + MC_DC + '.list-manage.com/subscribe/post-json?u=' + MC_U + '&id=' + MC_ID + '&c=mcCallback';
+      var qs = new URLSearchParams(params).toString();
+      var script = document.createElement('script');
+      script.src = baseUrl + '&' + qs;
+      document.body.appendChild(script);
+      setTimeout(function() { resolve({ result: 'success' }); script.remove(); }, 5000);
+      script.onload = function() { script.remove(); };
+      script.onerror = function() { resolve({ result: 'error', msg: 'Network error' }); script.remove(); };
+    });
+  }
 
-  ALTERNATIVE: If you prefer Con
+  function handleWaitlistSubmit(e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn = form.querySelector('button');
+    var originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    var params = {
+      EMAIL: form.querySelector('[name="EMAIL"]').value,
+      FNAME: form.querySelector('[name="FNAME"]').value,
+      LNAME: form.querySelector('[name="LNAME"]').value,
+      COMPANY: form.querySelector('[name="COMPANY"]').value,
+      TITLE: form.querySelector('[name="TITLE"]').value,
+      'b_57e45faf2c1535476eac4d3f3_38ee67e43b': '',
+    };
+
+    subscribeToMailchimp(params).then(function(resp) {
+      if (resp.result === 'error' && resp.msg && !resp.msg.includes('already subscribed')) {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        alert('Something went wrong. Please try again, or email chris@abraxis.ai directly.');
+      } else {
+        window.location.href = BOOK_URL;
+      }
+    });
+  }
+
+  document.getElementById('waitlist-hero').addEventListener('submit', handleWaitlistSubmit);
+  document.getElementById('waitlist-footer').addEventListener('submit', handleWaitlistSubmit);
+})();
+</script>
+
+</body>
+</html>
